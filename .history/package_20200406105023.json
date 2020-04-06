@@ -37,7 +37,6 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "redux-devtools-extension": "^2.13.8"
@@ -56,6 +55,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-test-renderer": "^16.13.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "eslint": "^6.6.0"
   }
 }

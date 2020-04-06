@@ -24,6 +24,9 @@
       "eslint"
     ]
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -37,7 +40,6 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "redux-devtools-extension": "^2.13.8"
