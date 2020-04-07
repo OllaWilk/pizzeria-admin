@@ -1,4 +1,5 @@
-'use strict';
+/* eslint-disable eqeqeq */
+
 import {select, templates, settings, classNames} from '../settings.js';
 import {utils} from '../utils.js';
 import  AmountWidget from './amountWidget.js';
@@ -11,7 +12,7 @@ class Booking {
 
     thisBooking.render(bookingReservation);
     thisBooking.initWidgets();
-    thisBooking.getData(); 
+    thisBooking.getData();
     thisBooking.initActions();
   }
 
@@ -24,7 +25,7 @@ class Booking {
     thisBooking.dom.wrapper = paramElem;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(select.booking.peopleAmount);
-    thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount); 
+    thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount);
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
@@ -115,7 +116,7 @@ class Booking {
     const minDate = thisBooking.datePicker.minDate;
     const maxDate = thisBooking.datePicker.maxDate;
 
-    for(let item of bookings){ 
+    for(let item of bookings){
       thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
     }
     for(let item of eventsCurrent){
@@ -135,7 +136,7 @@ class Booking {
   }
 
   /*informacje o zajętości stolow,daty, godziny długości h  */
-  makeBooked(date, hour, duration, table) { 
+  makeBooked(date, hour, duration, table) {
     const thisBooking = this;
 
     if (typeof thisBooking.booked[date] == 'undefined'){
@@ -246,7 +247,7 @@ class Booking {
 
   initActions() {
     const thisBooking = this;
-    
+
     for (let table of thisBooking.dom.tables) {
 
       table.addEventListener('click', function() {
@@ -311,7 +312,7 @@ class Booking {
     fetch(url, options)
       .then(function (response) {
         return response.json();
-      }) .then(function(parsedResponse) { 
+      }).then(function(parsedResponse) {
         console.log('parsedResponse', parsedResponse);
         thisBooking.makeBooked(booked.datePicked, booked.hourPicked, booked.duration, booked.table);
       });

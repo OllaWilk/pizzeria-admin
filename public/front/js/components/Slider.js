@@ -1,5 +1,5 @@
 /* global Handlebars */
-'use strict';
+
 let index = 0;
 let indexIcons = 0;
 
@@ -10,19 +10,19 @@ function slider() {
   const quoteOne = {
     title: 'Dura lex sed lex!',
     quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante tortor, hendrerit in consectetur a, suscipit fermentum magna. Donec eros sem,',
-    author: 'Marcus Tulius Cicero '
+    author: 'Marcus Tulius Cicero ',
   };
 
   const quoteTwo = {
     title: 'Veni vidi vici!',
     quote: 'Sed dictum convallis suscipit. Etiam dui tellus, ullamcorper viverra metus convallis, laoreet blandit erat. Phasellus malesuada libero nec erat vehicula ornare.',
-    author: 'Gaius Julius Ceazar'
+    author: 'Gaius Julius Ceazar',
   };
 
   const quoteThree = {
     title: 'Labor omnia vincit',
     quote: 'Vivamus aliquet magna in suscipit suscipit. Aliquam tincidunt, est sit amet sagittis pulvinar, elit enim blandit lectus, et pharetra diam erat vitae tortor',
-    author: 'Zina Marcus Collander'
+    author: 'Zina Marcus Collander',
   };
 
   targetElement = document.querySelector('.carousel');

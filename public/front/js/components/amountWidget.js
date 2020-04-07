@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import {settings, select} from '../settings.js'; //w setings exportuję rzeczy. Tutaj je importuję. bo są potrzebne..yes.. floor is made of floor
 import BaseWidget from './BaseWidget.js';
 

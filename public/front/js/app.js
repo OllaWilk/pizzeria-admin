@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 //importy pisze się na początku pliku
 import{settings, select, classNames} from  './settings.js'; //importuj obiekty settings z katalogu settings.js ścieżka do pliku zaczyna się ./
 import Product from './components/Product.js'; // JEDYNIE PRZY export default (domyślnego exportu) nie muszę używać nawiasów klamrowych. używanie nawiasów klamrowych służy do importu więcej niż 1 rzeczy i nie jest to rzecz domyślna
@@ -20,17 +21,17 @@ const app = {  // konst startuje aplikację. jest szefem całej aplikacji. BARDZ
     review[0] = {
       title: 'Friends',
       text: 'Lorem ipsum dolora sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      author: 'Kasia'
+      author: 'Kasia',
     };
     review[1] ={
       title: 'Food',
       text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      author: 'Ala'
+      author: 'Ala',
     };
     review[2] ={
       title: 'The best',
       text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-      author: 'Jadzia'
+      author: 'Jadzia',
     };
     let revInf = 0;
     const indicators = document.querySelectorAll('.carousel-indicators i');

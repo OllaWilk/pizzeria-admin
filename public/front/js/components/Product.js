@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-prototype-builtins */
 import {select, classNames, templates} from '../settings.js';
 import {utils} from '../utils.js';
 import AmountWidget from './amountWidget.js';
@@ -11,7 +13,7 @@ class Product {   //klasa Produkt opisuje mi wszystko to co/ gdzie będę wykorz
     thisProduct.renderInMenu();   //wywołuję renderowanie, które zapisane jest w metodzie renderInMenu
     thisProduct.getElements();
     thisProduct.initAccordion();
-    thisProduct. initOrderForm();
+    thisProduct.initOrderForm();
     thisProduct.initAmountWidget();
     thisProduct.processOrder();
 
@@ -54,7 +56,7 @@ class Product {   //klasa Produkt opisuje mi wszystko to co/ gdzie będę wykorz
       /* START LOOP: for each active product */
       for(let activeProduct of allActiveProducts) {
         /* START: if the active product isn't the element of thisProduct */
-        if (thisProduct.element !=activeProduct){
+        if (thisProduct.element !==activeProduct){
         /* remove class active for the active product */
           activeProduct.classList.remove('active');
           /* END: if the active product isn't the element of thisProduct */

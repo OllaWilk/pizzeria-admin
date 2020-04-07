@@ -1,4 +1,4 @@
-# Dashboard
+# Homepage
 ~ `/`
     ~statystyki dzisiejszych zamówień (zdalne i lokalne)
     ~listę rezerwacji i eventów zaplanowanych na dzisiaj
