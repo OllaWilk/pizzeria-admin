@@ -2,4 +2,22 @@
 
 .component {
   padding: $base-size;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+
+  .textField {
+    margin-right: 15px;
+
+    .button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 20px;
+      width: 100px;
+      text-align: center;
+    }
+  }
+
+
 }
