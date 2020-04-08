@@ -3,18 +3,19 @@ import styles from './Tables.module.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import Button from '@material-ui/core/Button';
+
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+
 const Tables = (id) => {
   return (
     <div className={styles.component}>
-      <h2>Tables view</h2>
-      <p>wybór daty i godziny</p>
-      <p>tabela z listą rezerwacji oraz wydarzeń</p>
-
-      <Link to={`${process.env.PUBLIC_URL}/tables/booking/${id}`}>Booking Id * </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`}>Booking New * </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/events/${id}`}>Event Id * </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/events/new`}>Event New * </Link>
-
+      <h2>Tables</h2>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/${id}`}>Booking Id</Button>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>New Booking</Button>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/events/${id}`}>Event Id</Button>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/events/new`}>New Event</Button>
     </div>
   );
 };

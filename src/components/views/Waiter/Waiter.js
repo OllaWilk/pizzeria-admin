@@ -11,10 +11,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-import Typography from '@material-ui/core/Typography';
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-
-
 const demoContent = [
   {id: '1', status: 'free', order: null},
   {id: '2', status: 'thinking', order: null},
@@ -61,14 +57,9 @@ const renderActions = status => {
 const Waiter = (id) => {
   return (
     <Paper className={styles.component}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link color="inherit" to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
-          <Typography color="textPrimary">New order</Typography>
-        </Link>
-        <Link color="inherit" to={`${process.env.PUBLIC_URL}/waiter/order/${id}`}>
-          <Typography color="textPrimary">Order Id</Typography>
-        </Link>
-      </Breadcrumbs>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/1`}>Order Details</Button>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>New Order</Button>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${id}`}>Order id</Button>
 
       <Table>
         <TableHead>
