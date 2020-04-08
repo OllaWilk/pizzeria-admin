@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 import Button from '@material-ui/core/Button';
 
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 
 const Tables = (id) => {
   return (
