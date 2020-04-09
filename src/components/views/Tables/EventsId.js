@@ -3,18 +3,155 @@ import styles from './Tables.module.scss';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
+import PropTypes from 'prop-types';
+
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+const demoStarters = ['water', 'snacks', 'cheese'];
+
+const demoContent = [
+  {id: 1, table: 2, ppl: 2, date:'2020-01-12T13:20', hour: '13:00', starters: ['water', 'snacks']},
+  {id: 2, table: 3, ppl: 5, date:'2020-01-12T13:20', hour: '15:00', starters: ['snacks']},
+
+];
 
 const EventsId = () => {
+
+  const [value, setValue] = React.useState({
+    tableValue: demoContent[0].table,
+    guestValue: demoContent[0].ppl,
+  });
+
+  const handleValueChange = name => event => {
+    setValue({...value, [name]: event.target.value});
+  };
+
+  const [checked, setChecked] = React.useState({
+    checkedA: false,
+    checkedB: false,
+    checkedC: false,
+  });
+
+  const handleCheckboxChange = name => event => {
+    setChecked({ ...checked, [name]: event.target.checked });
+  };
+
   return (
     <Container maxWidth='lg'>
       <Toolbar />
       <Paper className={styles.component}>
-        <h2>events id  view</h2>
+        <h2 className={styles.heading}>Event details</h2>
+        <Grid container spacing={4}>
+          <Grid item lg={2} sm={12} container direction="column" justify="space-between">
+            <Grid item>
+              <Paper>
+                <Typography variant="h6">ID</Typography>
+                <Divider />
+                <Typography variant="h3">{demoContent[1].id}</Typography>
+              </Paper>
+            </Grid>
+            <Grid item>
+              <Paper>
+                <Typography variant="h6">Table</Typography>
+                <Divider />
+                <FormControl>
+                  <InputLabel id="table"></InputLabel>
+                  <Select
+                    labelId="table"
+                    id="table"
+                    value={value.tableValue}
+                    onChange={handleValueChange('tableValue')}
+                  >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                  </Select>
+                </FormControl>
+              </Paper>
+            </Grid>
+            <Grid item>
+              <Paper>
+                <Typography variant="h6">Guests</Typography>
+                <Divider />
+                <FormControl>
+                  <InputLabel id="guests"></InputLabel>
+                  <Select
+                    labelId="guests"
+                    id="guests"
+                    value={value.guestValue}
+                    onChange={handleValueChange('guestValue')}
+                  >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                  </Select>
+                </FormControl>
+              </Paper>
+            </Grid>
+          </Grid>
 
-        <p>umożliwia edycję i zapisanie zmian</p>
+          <Grid item>
+            <Paper>
+              <Typography variant="h6">Starters</Typography>
+              <Divider />
+              <FormGroup row>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      defaultChecked={demoContent[0].starters.includes(demoStarters[0]) ? true : checked.checkedA}
+                      onChange={handleCheckboxChange('checkedA')}
+                      value={demoStarters[0]}
+                      color="primary"
+                    />
+                  }
+                  label={demoStarters[0]}
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      defaultChecked={demoContent[0].starters.includes(demoStarters[0]) ? true : checked.checkedB}
+                      onChange={handleCheckboxChange('checkedB')}
+                      value={demoStarters[1]}
+                      color="primary"
+                    />
+                  }
+                  label={demoStarters[1]}
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      defaultChecked={demoContent[0].starters.includes(demoStarters[2]) ? true : checked.checkedC}
+                      onChange={handleCheckboxChange('checkedC')}
+                      value={demoStarters[2]}
+                      color="primary"
+                    />
+                  }
+                  label={demoStarters[2]}
+                />
+              </FormGroup>
+            </Paper>
+          </Grid>
+        </Grid>
       </Paper>
     </Container>
   );
+};
+
+EventsId.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
 };
 
 export default EventsId;

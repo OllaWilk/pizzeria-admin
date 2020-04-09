@@ -19,6 +19,9 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 
+//import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+//import DateFnsUtils from '@date-io/date-fns';
+
 const bookings = [
   {id: 1, name: 'Ola', phone: '12365478', hour: '12:00', table: 1, ppl: 1},
   {id: 2, name: 'Agnieszka', phone: '78542479', hour: '12:30', table: 2, ppl: 2},
@@ -40,9 +43,13 @@ const orderStats = [
 const Homepage = () => {
 
   const [open, setOpen] = React.useState(true);
+  //const [selectedDate, setSelectedDate] = React.useState(new Date());
   const handleClick = () => {
     setOpen(!open);
   };
+  //const handleDateChange = date => {
+  // setSelectedDate(date);
+  //};
 
   return (
     <Container maxWidth='lg'>
@@ -50,6 +57,23 @@ const Homepage = () => {
       <Paper className={styles.component}>
         <div className={styles.heading}>
           <h2>Statistics</h2>
+
+          {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DatePicker
+              className={styles.datePicker}
+              value={selectedDate}
+              onChange={handleDateChange}
+              animateYearScrolling
+            />
+            <TimePicker
+              clearable
+              ampm={false}
+              value={selectedDate}
+              onChange={handleDateChange}
+            />
+          </MuiPickersUtilsProvider>
+          */}
+          
           <ListItem>
             <Table>
               <TableHead>
