@@ -2,4 +2,12 @@
 
 .component {
   padding: $base-size;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
 }

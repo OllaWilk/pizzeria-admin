@@ -23,7 +23,7 @@ import EventsId from './components/views/Tables/EventsId';
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#2B4C6F' },
-    secondary: { main: '#9c1530' },
+    secondary: { main: '#117c17' },
   },
 });
 

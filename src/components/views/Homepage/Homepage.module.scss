@@ -2,4 +2,22 @@
 
 .component {
   padding: $base-size;
+  display: flex;
+  flex-direction: column;
 }
+
+.heading {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.datePicker {
+  margin-right: 20px;
+
+  .display {
+    display: flex;
+  }
+}
+

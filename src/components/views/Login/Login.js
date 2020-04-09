@@ -11,6 +11,8 @@ import Button from '@material-ui/core/Button';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { Link } from 'react-router-dom';
+import Paper from '@material-ui/core/Paper';
+import Toolbar from '@material-ui/core/Toolbar';
 
 const Login = () => {
 
@@ -36,43 +38,46 @@ const Login = () => {
 
   return (
     <Container maxWidth='lg'>
-      <form className={styles.component} autoComplete="off">
-        <TextField
-          className={styles.textField}
-          required
-          id="login"
-          label="User Name"
-        />
-
-        <FormControl className={clsx(styles.textField)}>
-          <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-          <Input
-            id="standard-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
-            endAdornment={
-              <InputAdornment>
-                <Button
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </Button>
-              </InputAdornment>
-            }
+      <Toolbar/>
+      <Paper>
+        <form  className={styles.component}  autoComplete="off">
+          <TextField
+            className={styles.textField}
+            required
+            id="login"
+            label="User Name"
           />
-        </FormControl>
 
-        <Button
-          className={styles.button}
-          variant="contained" color="primary"
-          component={Link} to={`${process.env.PUBLIC_URL}/`}
-        >
+          <FormControl className={clsx(styles.textField)}>
+            <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+            <Input
+              id="standard-adornment-password"
+              type={values.showPassword ? 'text' : 'password'}
+              value={values.password}
+              onChange={handleChange('password')}
+              endAdornment={
+                <InputAdornment>
+                  <Button
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </Button>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
+
+          <Button
+            className={styles.button}
+            variant="contained" color="primary"
+            component={Link} to={`${process.env.PUBLIC_URL}/`}
+          >
         LOGIN
-        </Button>
-      </form>
+          </Button>
+        </form>
+      </Paper>
     </Container>
 
   );

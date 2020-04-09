@@ -8,8 +8,12 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
+import Container from '@material-ui/core/Container';
+import AddIcon from '@material-ui/icons/Add';
 
 const demoContent = [
   {id: '1', status: 'free', order: null},
@@ -56,45 +60,50 @@ const renderActions = status => {
 
 const Waiter = (id) => {
   return (
-    <Paper className={styles.component}>
-      <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/1`}>Order Details</Button>
-      <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>New Order</Button>
-      <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${id}`}>Order id</Button>
-
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Table</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Order</TableCell>
-            <TableCell>Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {demoContent.map(row => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                {row.id}
-              </TableCell>
-              <TableCell>
-                {row.status}
-              </TableCell>
-              <TableCell>
-                {row.order && (
-                  <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                    {row.order}
-                  </Button>
-                )}
-              </TableCell>
-              <TableCell>
-                {renderActions(row.status)}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-
+    <Container maxWidth='lg'>
+      <Toolbar />
+      <Paper className={styles.component}>
+        <div className={styles.heading}>
+          <h2>Waiter</h2>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${id}`}>Order Details</Button>
+          <Button color='secondary'  aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
+            <AddIcon /> Add New Order
+          </Button>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Table</TableCell>
+                <TableCell>Status</TableCell>
+                <TableCell>Order</TableCell>
+                <TableCell>Action</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {demoContent.map(row => (
+                <TableRow key={row.id}>
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell>
+                    {row.status}
+                  </TableCell>
+                  <TableCell>
+                    {row.order && (
+                      <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                        {row.order}
+                      </Button>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {renderActions(row.status)}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </Paper>
+    </Container>
   );
 };
 
