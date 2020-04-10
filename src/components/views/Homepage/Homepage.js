@@ -19,8 +19,8 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 
-//import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-//import DateFnsUtils from '@date-io/date-fns';
+import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 const bookings = [
   {id: 1, name: 'Ola', phone: '12365478', hour: '12:00', table: 1, ppl: 1},
@@ -43,13 +43,15 @@ const orderStats = [
 const Homepage = () => {
 
   const [open, setOpen] = React.useState(true);
-  //const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  
   const handleClick = () => {
     setOpen(!open);
   };
-  //const handleDateChange = date => {
-  // setSelectedDate(date);
-  //};
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
 
   return (
     <Container maxWidth='lg'>
@@ -58,7 +60,7 @@ const Homepage = () => {
         <div className={styles.heading}>
           <h2>Statistics</h2>
 
-          {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <DatePicker
               className={styles.datePicker}
               value={selectedDate}
@@ -72,10 +74,11 @@ const Homepage = () => {
               onChange={handleDateChange}
             />
           </MuiPickersUtilsProvider>
-          */}
           
+        </div>
+        <List >
           <ListItem>
-            <Table>
+            <Table className={styles.heading}>
               <TableHead>
                 <TableRow>
                   <TableCell>OrderNo</TableCell>
@@ -92,26 +95,20 @@ const Homepage = () => {
               </TableBody>
             </Table>
           </ListItem>
-        </div>
-      </Paper>
-
-      <Divider />
-
-      <Paper className={styles.component}>
-        <div className={styles.heading}>
+          <Divider />
           <ListItem button onClick={handleClick}>
             <h2>Table bookings for today</h2>
             <ListItemText  />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={!open} timeout="auto" unmountOnExit>
-            <List>
+            <List className={styles.heading}> 
               <Table>
                 <TableHead>
                   <TableRow>
                     <TableCell>id</TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Phone</TableCell>
+                    <TableCell>Guest Name</TableCell>
+                    <TableCell>Guest Phone</TableCell>
                     <TableCell>Hour</TableCell>
                     <TableCell>Table</TableCell>
                   </TableRow>
@@ -140,53 +137,48 @@ const Homepage = () => {
               </Table>
             </List>
           </Collapse>
-        </div>
-      </Paper>
-
-      <Divider />
-
-      <Paper className={styles.component}>
-        <div className={styles.heading}>
-          <ListItem button onClick={handleClick}>
-            <h2>Events for today</h2>
-            <ListItemText  />
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={!open} timeout="auto" unmountOnExit>
-            <List>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Id</TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Hour</TableCell>
-                    <TableCell>Table</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {events.map(row => (
-                    <TableRow key={row.id}>
-                      <TableCell component="th" scope="row">
-                        {row.id}
-                      </TableCell>
-                      <TableCell>
-                        {row.name}
-                      </TableCell>
-                      <TableCell>
-                        {row.hour}
-                      </TableCell>
-                      <TableCell>
-                        {row.table}
-                      </TableCell>
+          <Divider />
+          <List >
+            <ListItem button onClick={handleClick}>
+              <h2>Events for today</h2>
+              <ListItemText  />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={!open} timeout="auto" unmountOnExit>
+              <List className={styles.heading}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Id</TableCell>
+                      <TableCell>Event</TableCell>
+                      <TableCell>Hour</TableCell>
+                      <TableCell>Table</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </List>
-          </Collapse>
-        </div>
+                  </TableHead>
+                  <TableBody>
+                    {events.map(row => (
+                      <TableRow key={row.id}>
+                        <TableCell component="th" scope="row">
+                          {row.id}
+                        </TableCell>
+                        <TableCell>
+                          {row.name}
+                        </TableCell>
+                        <TableCell>
+                          {row.hour}
+                        </TableCell>
+                        <TableCell>
+                          {row.table}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </List>
+            </Collapse>
+          </List>
+        </List>
       </Paper>
-      
       <Toolbar />
     </Container>
   );
