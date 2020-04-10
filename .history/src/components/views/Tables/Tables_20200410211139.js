@@ -19,10 +19,10 @@ import { ViewState } from '@devexpress/dx-react-scheduler';
 import {
   Scheduler,
   DayView,
-  //Appointments,
-  // AppointmentTooltip,
-  //DateNavigator,
-  //TodayButton,
+  Appointments,
+  AppointmentTooltip,
+  DateNavigator,
+  TodayButton,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 import Toolbar from '@material-ui/core/Toolbar';
@@ -101,7 +101,7 @@ const Tables = (id) => {
               endDayHour={24}
             />
             <Toolbar />
-            {/*} <DateNavigator />
+           {/*} <DateNavigator />
             <TodayButton />
             <Appointments />
   <AppointmentTooltip />*/}

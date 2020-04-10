@@ -15,7 +15,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 const demoStarters = ['water', 'snacks', 'cheese'];
 
@@ -23,8 +24,12 @@ const demoContent = [
   {id: 1, table: 2, ppl: 2, date:'2020-01-12T13:20', hour: '13:00', starters: ['water', 'snacks']},
 ];
 
-
 const BookingId = () => {
+
+  const [selectedDate, setSelectedDate] = React.useState(new Date(demoContent[0].date));
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
 
   const [value, setValue] = React.useState({
     tableValue: demoContent[0].table,
@@ -74,6 +79,7 @@ const BookingId = () => {
                     <MenuItem value={1}>1</MenuItem>
                     <MenuItem value={2}>2</MenuItem>
                     <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
                   </Select>
                 </FormControl>
               </Paper>
@@ -97,6 +103,32 @@ const BookingId = () => {
                 </FormControl>
               </Paper>
             </Grid>
+          </Grid>
+          <Grid item lg={5} container>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <DatePicker
+                className={styles.datePicker}
+                value={selectedDate}
+                onChange={handleDateChange}
+                autoOk
+                orientation="landscape"
+                variant="static"
+                openTo="date"
+              />
+            </MuiPickersUtilsProvider>
+          </Grid>
+          <Grid item lg={5} container>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <TimePicker
+                autoOk
+                ampm={false}
+                variant="static"
+                orientation="landscape"
+                openTo="minutes"
+                value={selectedDate}
+                onChange={handleDateChange}
+              />
+            </MuiPickersUtilsProvider>
           </Grid>
 
           <Grid item>
