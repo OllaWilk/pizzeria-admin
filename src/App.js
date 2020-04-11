@@ -10,7 +10,7 @@ import Homepage from './components/views/Homepage/Homepage';
 import Login from './components/views/Login/Login';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Tables from './components/views/Tables/Tables';
-import Waiter from './components/views/Waiter/Waiter';
+import Waiter from './components/views/Waiter/WaiterContainer';
 
 import OrderNew from './components/views/Waiter/OrderNew';
 import OrderId from './components/views/Waiter/OrderId';

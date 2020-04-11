@@ -1,5 +1,5 @@
-import {combineReducers, createStore, applyMiddleware} from 'redux';
-//import thunk from 'redux-thunk';
+import {combineReducers, createStore, applyMiddleware} from 'redux'; 
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import tablesReducer from './tablesRedux';
@@ -28,13 +28,13 @@ Object.keys(initialState).forEach(item => {
 });
 
 const combinedReducers = combineReducers(reducers);
-
+ 
 // create store
 const store = createStore(
   combinedReducers,
   initialState,
   composeWithDevTools(
-    applyMiddleware()
+    applyMiddleware(thunk)
   )
 );
 

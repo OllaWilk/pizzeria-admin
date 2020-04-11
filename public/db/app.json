@@ -290,10 +290,12 @@
     {
       "id": 5,
       "status": "delivered",
-      "order": 345},
+      "order": 345
+    },
     {
       "id": 6,
       "status": "paid",
-      "order": 456}
+      "order": 456
+    }
   ]
 }
