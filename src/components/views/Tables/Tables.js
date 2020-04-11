@@ -39,7 +39,7 @@ const Tables = (id) => {
           <Button color='secondary'  aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>
             <AddIcon /> Add New Booking
           </Button>
-          <Button color='secondary'  aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>
+          <Button color='secondary'  aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/events/new`}>
             <AddIcon /> Add New Event
           </Button>
         </div>
