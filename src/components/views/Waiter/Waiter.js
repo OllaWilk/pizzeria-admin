@@ -3,7 +3,6 @@ import styles from './Waiter.module.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -36,7 +35,6 @@ class Waiter extends React.Component
     }),
     tables: PropTypes.object,
     updateStatus: PropTypes.func,
-    updateStatus2: PropTypes.func,
   }
 
   componentDidMount() {
@@ -49,29 +47,29 @@ class Waiter extends React.Component
       case 'free':
         return (
           <>
-            <Button onClick={() => this.props.updateStatus2(id,'thinking')}>thinking</Button>
-            <Button onClick={() => this.props.updateStatus2(id,'ordered')}>new order</Button>
+            <Button onClick={() => this.props.updateStatus(id,'thinking')}>thinking</Button>
+            <Button onClick={() => this.props.updateStatus(id,'ordered')}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button onClick={() => this.props.updateStatus2(id,'ordered')}>new order</Button>
+          <Button onClick={() => this.props.updateStatus(id,'ordered')}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button onClick={() => this.props.updateStatus2(id,'prepared')}>prepared</Button>
+          <Button onClick={() => this.props.updateStatus(id,'prepared')}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button onClick={() => this.props.updateStatus2(id,'delivered')}>delivered</Button>
+          <Button onClick={() => this.props.updateStatus(id,'delivered')}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button onClick={() => this.props.updateStatus2(id,'paid')}>paid</Button>
+          <Button onClick={() => this.props.updateStatus(id,'paid')}>paid</Button>
         );
       case 'paid':
         return (
-          <Button onClick={() => this.props.updateStatus2(id,'free')}>free</Button>
+          <Button onClick={() => this.props.updateStatus(id,'free')}>free</Button>
         );
       default:
         return null;

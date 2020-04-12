@@ -37,35 +37,21 @@ export const fetchFromAPI = () => {
   };
 };
 
-export const changeStatusAndUpdateState = (newStatus) => {
+export const fetchUpdateStatus = (tableID, newStatus) => {
+
   return (dispatch, getState) => {
-    dispatch(changeStatus());
+    dispatch(fetchStarted());
 
     Axios
-      .post(`${api.url}/${api.tables}`, {
-        status: newStatus,
-      })
-      .then(res => {
-        dispatch(changeStatus());
+      .get(`${api.url}/${api.tables}`)
+
+      .then(() => {
+        dispatch(changeStatus(tableID, newStatus));
       })
       .catch(err => {
         dispatch(fetchError(err.message || true));
       });
   };
-};
-
-export const changeStatusAndUpdateState2 = (tableID, newStatus, dispatch) => {
-
-  return Axios
-    .post(`${api.url}/${api.tables}`)
-
-    .then(res => {
-      dispatch(changeStatus( tableID, newStatus));
-
-    })
-    .catch(err => {
-      dispatch(fetchError(err.message || true));
-    });
 };
 
 /* reducer */
@@ -107,13 +93,13 @@ export default function reducer(statePart = [], action = {}) {
           active: false,
           error: false,
         },
-        data: statePart.data.map(order => {
-          return order.id === action.id ?
+        data: statePart.data.map(order =>
+          order.id === action.id ?
             {...order,
               status: action.status,
             }
-            : order;
-        }),
+            : order
+        ),
       };
     }
 
