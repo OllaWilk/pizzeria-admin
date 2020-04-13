@@ -42,8 +42,11 @@ export const fetchUpdateStatus = (tableID, newStatus) => {
   return (dispatch, getState) => {
     dispatch(fetchStarted());
 
+
     Axios
-      .get(`${api.url}/${api.tables}`)
+    //.post(`${api.url}/${api.tables}`)
+    //.get(`${api.url}/${api.tables}`)
+      .patch(`${api.url}/${api.tables}/${tableID}`, { status: newStatus })
 
       .then(() => {
         dispatch(changeStatus(tableID, newStatus));
